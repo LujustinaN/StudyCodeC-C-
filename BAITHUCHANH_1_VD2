@@ -1,0 +1,52 @@
+#include<stdio.h>
+#include<conio.h>
+double capsocong(int n, int a, int r); 
+double capsonhan(int n, int a, int q); 
+
+//Phan chay chuong trinh
+int main()
+{
+	int n;
+	int a,q,r;
+	printf("Nhap n: ");
+	scanf("%d",&n);
+	printf("Nhap a: ");
+	scanf("%d",&a);
+	printf("Nhap r: ");
+	scanf("%d",&r);
+	printf("Nhap q: ");
+	scanf("%d", q);
+	printf("Cap so cong %10.0f \n", capsocong(n,a,r));
+	printf("Cap so nhan %10.0f \n", capsonhan(n,a,q));
+	for(int i = 1; i <= n; i++)
+	{
+		if(i%10 == 0)
+			printf("\n");
+			printf("%5.0f", capsocong(i,a,r));
+	}
+			printf("\n");
+return 0;	
+}
+
+//Cac ham
+
+double capsocong(int n, int a, int r)
+{
+	if(n >= 1)
+	{
+		if(n == 1)
+		return a;
+		return r + capsocong(n-1,a,r);
+	}
+}
+double capsonhan(int n, int a, int q)
+{
+	if(n >= 1)
+	{
+		if(n == 1)
+		return a;
+		return q*capsonhan(n-1,a,q);
+	}
+}
+
+
