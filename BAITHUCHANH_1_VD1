@@ -1,0 +1,46 @@
+#include<stdio.h>
+#include<conio.h>
+long tong(int n);
+long tich(int n);
+double luythua(float a, int n);
+int main()
+{
+	int n;
+	float a;
+	printf("Nhap so luong phan tu cho tong: ");
+	scanf("%d",&n);
+	printf("Nhap so luong phan tu cho tich: ");
+	scanf("%f",&a);
+	printf("Tong la %d\n",tong(n));
+	printf("Tich la %d\n",tich(n));
+	printf("Luy thua %10.2f\n",luythua(a,n));
+	return 0;	
+}
+// than cua cac ham
+long tong(int n)
+{
+	if(n>=0)
+	{
+		if(n==1)
+			return 1;
+		return n + tong(n-1);
+	}	
+}
+long tich(int n)
+{
+	if(n>=1)
+	{
+		if(n==1)
+			return 1;
+		return n * tich(n-1);
+	}	
+}
+double luythua(float a, int n)
+{
+	if(n>=0)
+	{
+		if(n==0)
+			return 1;
+		return a* luythua(a,n-1);
+	}		
+}
